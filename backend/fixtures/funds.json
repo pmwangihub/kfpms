@@ -1,0 +1,162 @@
+[
+    {
+        "model": "api.fund",
+        "pk": 3,
+        "fields": {
+            "amount": "12000.00",
+            "source": "NGO B",
+            "allocated_at": "2024-02-05T14:30:00Z",
+            "description": "Support for child nutrition programs."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 4,
+        "fields": {
+            "amount": "9500.00",
+            "source": "Private Donor",
+            "allocated_at": "2024-02-18T09:00:00Z",
+            "description": "Special donation for medical support."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 5,
+        "fields": {
+            "amount": "11000.00",
+            "source": "NGO C",
+            "allocated_at": "2024-03-10T11:45:00Z",
+            "description": "Water and sanitation improvement."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 6,
+        "fields": {
+            "amount": "5000.00",
+            "source": "Government",
+            "allocated_at": "2024-03-15T08:00:00Z",
+            "description": "Supplementary school feeding."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 7,
+        "fields": {
+            "amount": "8700.00",
+            "source": "NGO D",
+            "allocated_at": "2024-04-02T13:00:00Z",
+            "description": "Hygiene kits distribution."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 8,
+        "fields": {
+            "amount": "7800.00",
+            "source": "Private Donor",
+            "allocated_at": "2024-04-20T10:15:00Z",
+            "description": "Support for orphans."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 9,
+        "fields": {
+            "amount": "13000.00",
+            "source": "NGO E",
+            "allocated_at": "2024-05-01T15:00:00Z",
+            "description": "Expanded outreach for malnutrition cases."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 10,
+        "fields": {
+            "amount": "9800.00",
+            "source": "Government",
+            "allocated_at": "2024-05-11T09:30:00Z",
+            "description": "Relief package for displaced families."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 11,
+        "fields": {
+            "amount": "10500.00",
+            "source": "NGO A",
+            "allocated_at": "2024-06-01T10:00:00Z",
+            "description": "June intervention program."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 12,
+        "fields": {
+            "amount": "7400.00",
+            "source": "NGO F",
+            "allocated_at": "2024-06-05T11:00:00Z",
+            "description": "Nutrition campaign support."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 13,
+        "fields": {
+            "amount": "6700.00",
+            "source": "Corporate Sponsor",
+            "allocated_at": "2024-06-15T14:00:00Z",
+            "description": "CSR donation for feeding children."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 14,
+        "fields": {
+            "amount": "8900.00",
+            "source": "Private Donor",
+            "allocated_at": "2024-06-20T10:00:00Z",
+            "description": "For setting up a community kitchen."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 15,
+        "fields": {
+            "amount": "9200.00",
+            "source": "NGO G",
+            "allocated_at": "2024-07-01T09:00:00Z",
+            "description": "Food logistics operations."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 16,
+        "fields": {
+            "amount": "10200.00",
+            "source": "Government",
+            "allocated_at": "2024-07-05T08:30:00Z",
+            "description": "Budgeted county disbursement."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 17,
+        "fields": {
+            "amount": "9300.00",
+            "source": "NGO H",
+            "allocated_at": "2024-07-15T10:00:00Z",
+            "description": "Food vouchers for vulnerable households."
+        }
+    },
+    {
+        "model": "api.fund",
+        "pk": 18,
+        "fields": {
+            "amount": "7600.00",
+            "source": "Private Donor",
+            "allocated_at": "2024-07-20T12:00:00Z",
+            "description": "Monthly contribution for feeding programs."
+        }
+    }
+]
