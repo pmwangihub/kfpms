@@ -26,9 +26,10 @@ function App() {
         return;
       }
       try {
-        await axios.get('/api/auth/verify/', {
+        const response = await axios.get('/api/auth/verify/', {
           headers: { Authorization: `Bearer ${token}` },
         });
+        clg
         setIsAuthenticated(true);
       } catch (error) {
         console.error('Token verification failed:', error.message);

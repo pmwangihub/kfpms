@@ -66,7 +66,10 @@ db.sqlite3
 db.sqlite3-journal
 
 # Django migrations
-**/migrations/
+# Ignore only migration files that start with '00' in any migrations folder
+**/migrations/00*.py
+
+# But do not ignore __init__.py
 !**/migrations/__init__.py
 
 # Media and static files (unversioned assets)
