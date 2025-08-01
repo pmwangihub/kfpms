@@ -26,8 +26,8 @@ Create a Django project, install dependencies, and set up the development enviro
 #### Code and Commands
 1. **Create Virtual Environment**:
    ```bash
-   python -m venv venv
-   source venv/Scripts/activate  # On Windows: venv\Scripts\activate
+   python -m venv env
+   source env/Scripts/activate  # On Windows: venv\Scripts\activate
    ```
 
 2. **Install Dependencies**:
@@ -37,8 +37,16 @@ Create a Django project, install dependencies, and set up the development enviro
    - `django`: Core framework.
    - `djangorestframework`: For building RESTful APIs.
    - `django-cors-headers`: To allow frontend (React) to communicate with backend.
-   - `psycopg2-binary`: PostgreSQL adapter.
    - `djangorestframework-simplejwt`: For JWT authentication.
+
+3. **Run migrations**:
+   ```bash
+        python manage.py makemigrations api && python manage.py migrate api
+   ```
+3. **Create Super user**:
+   ```bash
+        python manage.py  createsuperuser
+   ```
 
 3. **Create Django Project and App**:
    ```bash

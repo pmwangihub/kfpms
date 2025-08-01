@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       const token = localStorage.getItem('token');
-      console.log('Token in localStorage:', token);
+      console.log('Token in localStorage new:', token);
 
       if (!token) {
         console.log('No token found.');
