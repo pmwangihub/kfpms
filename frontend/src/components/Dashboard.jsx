@@ -1,3 +1,9 @@
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { db } from '../db';
@@ -29,10 +35,10 @@ const Dashboard = () => {
           setStats(statsResponse.data);
           setFunds(fundsResponse.data);
           setTransactions(transactionsResponse.data);
-          await db.stats.clear();
+          // await db.stats.clear();
           await db.funds.clear();
           await db.transactions.clear();
-          await db.stats.add(statsResponse.data);
+          // await db.stats.add(statsResponse.data);
           await db.funds.bulkPut(fundsResponse.data);
           await db.transactions.bulkPut(transactionsResponse.data);
         } catch (error) {
@@ -40,7 +46,7 @@ const Dashboard = () => {
         }
       } else {
         const [offlineStats, offlineFunds, offlineTrans] = await Promise.all([
-          db.stats.toArray(),
+          // db.stats.toArray(),
           db.funds.toArray(),
           db.transactions.toArray(),
         ]);

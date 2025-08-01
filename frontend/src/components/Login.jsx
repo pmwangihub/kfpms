@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 /**
  * Login component for user authentication.
+ *
  * @param {object} props - Component props
  * @param {Function} props.setIsAuthenticated - Function to set authentication state
  * @returns {JSX.Element} Login form
@@ -10,9 +12,11 @@ import axios from 'axios';
 const Login = ({ setIsAuthenticated }) => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   /**
    * Handle form input changes.
+   *
    * @param {React.ChangeEvent<HTMLInputElement>} e - Input change event
    */
   const handleChange = (e) => {
@@ -21,6 +25,7 @@ const Login = ({ setIsAuthenticated }) => {
 
   /**
    * Handle form submission for login.
+   *
    * @param {React.FormEvent} e - Form submit event
    */
   const handleSubmit = async (e) => {
@@ -30,6 +35,7 @@ const Login = ({ setIsAuthenticated }) => {
       localStorage.setItem('token', response.data.access);
       setIsAuthenticated(true);
       setError('');
+      navigate('/dashboard'); // Redirect after successful login
     } catch (error) {
       setError(error?.response?.data?.detail || 'Login failed');
     }

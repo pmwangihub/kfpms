@@ -1,3 +1,6 @@
+
+
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -7,6 +10,7 @@ import FundList from './components/FundList';
 import TransactionList from './components/TransactionList';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import Navbar from './components/Navbar';
 
 /**
  * Main App component with routing and authentication check.
@@ -16,19 +20,21 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
-    /**
-     * Check if the stored token is valid on app load.
-     */
     const checkAuth = async () => {
       const token = localStorage.getItem('token');
+      console.log('Token in localStorage:', token);
+
       if (!token) {
+        console.log('No token found.');
         setIsAuthenticated(false);
         return;
       }
+
       try {
-        await axios.get('/api/auth/verify/', {
+        const response = await axios.get('/api/auth/verify/', {
           headers: { Authorization: `Bearer ${token}` },
         });
+        console.log('Auth success:', response.data);
         setIsAuthenticated(true);
       } catch (error) {
         console.error('Token verification failed:', error.message);
@@ -39,29 +45,62 @@ function App() {
     checkAuth();
   }, []);
 
-  /**
-   * Protected route component to restrict access.
-   * @param {object} props - Component props
-   * @param {React.Component} props.component - Component to render
-   * @returns {JSX.Element} Component or redirect to login
-   */
-  const ProtectedRoute = ({ component: Component }) => {
-    if (isAuthenticated === null) return null; // Wait for auth check
-    return isAuthenticated ? <Component /> : <Navigate to="/login" />;
-  };
 
+  /**
+   * ProtectedRoute component to restrict access.
+   * @param {object} props
+   * @param {React.ReactNode} props.children - Components to render if authenticated
+   * @returns {JSX.Element|null}
+   */
+  const ProtectedRoute = ({ children }) => {
+    console.log('ProtectedRoute: isAuthenticated =', isAuthenticated);
+
+    if (isAuthenticated === null) return null;
+    return isAuthenticated ? children : <Navigate to="/login" replace />;
+  };
   return (
+
     <Router>
+      <Navbar setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} />
       <Routes>
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
-        <Route path="/beneficiaries" element={<ProtectedRoute component={BeneficiaryList} />} />
-        <Route path="/funds" element={<ProtectedRoute component={FundList} />} />
-        <Route path="/transactions" element={<ProtectedRoute component={TransactionList} />} />
-        <Route path="/profile" element={<ProtectedRoute component={Profile} />} />
+        <Route path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} />
+        <Route
+          path="/beneficiaries"
+          element={
+            <ProtectedRoute>
+              <BeneficiaryList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/funds"
+          element={
+            <ProtectedRoute>
+              <FundList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/transactions"
+          element={
+            <ProtectedRoute>
+              <TransactionList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/" element={<Navigate to="/dashboard" />} />
       </Routes>
     </Router>
+
   );
 }
 
