@@ -3,6 +3,11 @@ from .models import Beneficiary, Fund, Transaction, SyncQueue
 from typing import Type, Any, Optional, Sequence
 
 
+admin.site.site_header = "KFPMS Admin Panel"
+admin.site.site_title = "KFPMS Portal"
+admin.site.index_title = "KFPMS Administration Dashboard"
+
+
 @admin.register(Beneficiary)
 class BeneficiaryAdmin(admin.ModelAdmin):
     """
